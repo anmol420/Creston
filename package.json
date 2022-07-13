@@ -1,13 +1,21 @@
 {
-  "name": "main",
+  "name": "creston",
   "version": "1.0.0",
-  "description": "",
+  "description": "A DiscordJs Bot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmol420/Creston.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anmol420/Creston/issues"
+  },
+  "homepage": "https://github.com/anmol420/Creston#readme",
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
