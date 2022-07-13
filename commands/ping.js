@@ -3,9 +3,9 @@ const discord = require("discord.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-    .setName("help")
-    .setDescription("Help Menu"),
+    .setName("ping")
+    .setDescription("Bot's Ping"),
 	run: async ({ client, interaction }) => {
-		await interaction.editReply("play | stop | pause | resume | info | queue | skip | ping | invite | support")
+		await interaction.editReply(`${interaction.client.ws.ping}ms`)
 	},
 }
