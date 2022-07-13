@@ -13,7 +13,6 @@ const express = require("express");
 const cors = require("cors");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const { clientId, guildId } = require("./config.json");
 
 const app = express();
 app.use(cors());
@@ -70,7 +69,7 @@ client.on('ready', async client =>{
 		(async () => {
 			try {
 				await rest.put(
-					Routes.applicationCommands(clientId),
+					Routes.applicationCommands(process.env.clientId),
 					{ body: commands }
 				);
 
