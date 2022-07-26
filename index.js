@@ -80,6 +80,40 @@ client.on('ready', async client =>{
 		})();
 });
 
+client.on("interactionCreate", async (interaction) => {
+	if (!interaction.isSelectMenu()) return;
+
+	if (interaction.customId === "help_menu") {
+		let msg = await interaction.channel.messages.fetch(
+			interaction.message.id
+		);
+
+		if (interaction.values[0] === "music") {
+			await interaction.deferUpdate();
+
+			const music = new Discord.MessageEmbed()
+			.setTitle(":musical_note: Music")
+			.setDescription("`play` | `stop` | `pause` | `resume` | `info` | `queue` | `skip`")
+			.setThumbnail(interaction.client.user.displayAvatarURL())
+			.setColor("YELLOW");
+			await msg.edit({
+				embeds: [music]
+			});
+		} else if (interaction.values[0] === "system") {
+			await interaction.deferUpdate();
+
+			const system = new Discord.MessageEmbed()
+			.setTitle(":robot: System")
+			.setDescription("`ping` | `invite` | `support`")
+			.setThumbnail(interaction.client.user.displayAvatarURL())
+			.setColor("YELLOW");
+			await msg.edit({
+				embeds: [system]
+			});
+		}
+	}
+});
+
 /*client.commands.delete('')*/
 
 client.login(process.env.TOKEN);
